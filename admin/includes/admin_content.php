@@ -9,9 +9,22 @@
                         </h1>
                         
                         <?php
-
-                            $found_user = User::find_user_by_id(2);
-                            echo $found_user->username;
+                            $user = User::find_user_by_id(5);
+                            $user->delete();
+                            //-----------------
+                            // $user = User::find_user_by_id(2);
+                            // $user->last_name = "Luxy";
+                            // $user->update();
+                            //------------------
+                            // $user = new User();
+                            // $user->username = "Hank";
+                            // $user->password = "1234";
+                            // $user->first_name = "Henry";
+                            // $user->last_name = "clavers";
+                            // $user->create();
+                            //------------------
+                            // $found_user = User::find_user_by_id(2);
+                            // echo $found_user->username;
                             //-------------
                             // $users = User::find_all_users();
                             // foreach ($users as $user) {
