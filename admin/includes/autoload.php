@@ -8,11 +8,11 @@ function autoloader($class){
     $the_path = "includes/{$class}.php";
 
     if(is_file($the_path) && !class_exists($class)){
-        include $the_path;
+        include($the_path);
     }
 
     if(file_exists($the_path)){
-        require_once($the_path);
+        include_once($the_path);
     }else{
         die("This file named {$class}.php was not found ");
     }
