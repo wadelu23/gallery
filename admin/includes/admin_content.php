@@ -13,36 +13,36 @@
     // $user->username = "nUser02";
     // $user->save();
     //----------------
-    // $user = User::find_user_by_id(9);
+    // $user = User::find_by_id(9);
     // $user->password = "PWD001";
     // $user->save();
     //----------------
-    // $user = User::find_user_by_id(10);
+    // $user = User::find_by_id(10);
     // $user->delete();
     //-----------------
-    // $user = User::find_user_by_id(2);
+    // $user = User::find_by_id(2);
     // $user->username = "number2";
     // $user->password = "777";
     // $user->first_name = "updno1";
     // $user->last_name = "Luxy77";
     // $user->update();
     //------------------
-    $user = new User();
-    $user->username = "will02";
-    $user->password = "456";
-    $user->first_name = "hipper02";
-    $user->last_name = "bank02";
-    $user->create();
+    // $user = new User();
+    // $user->username = "will02";
+    // $user->password = "456";
+    // $user->first_name = "hipper02";
+    // $user->last_name = "bank02";
+    // $user->create();
     //------------------
-    // $found_user = User::find_user_by_id(2);
+    // $found_user = User::find_by_id(2);
     // echo $found_user->username;
     //-------------
-    // $users = User::find_all_users();
-    // foreach ($users as $user) {
-    //     echo $user->username."<br>";
-    // }
+    $users = User::find_all();
+    foreach ($users as $user) {
+        echo $user->username."<br>";
+    }
     //-------------------
-    // $found_user = User::find_user_by_id(2);
+    // $found_user = User::find_by_id(2);
     // $user = User::instantation($found_user);
     
     // echo $user->id."<br>";
@@ -51,10 +51,10 @@
     // echo $user->first_name."<br>";
     // echo $user->last_name."<br>";
     //-------------------
-    // $found_user = User::find_user_by_id(2);
+    // $found_user = User::find_by_id(2);
     // echo $found_user['username'];
     //---------------
-    // $result_set = User::find_all_users();
+    // $result_set = User::find_all();
     // while($row = mysqli_fetch_array($result_set)){
     //     echo $row['username']."<br>";
     // }
