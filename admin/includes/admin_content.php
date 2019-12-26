@@ -9,8 +9,21 @@
                         </h1>
                         
 <?php
+    // $photo = new Photo();
+    // $photo->title = "fire01";
+    // $photo->description = "big fire";
+    // $photo->filename = "fire01.jpg";
+    // $photo->type = "img";
+    // $photo->size = "16";
+    // $photo->create();
+    //------------------
+    // $photos = Photo::find_all();
+    // foreach ($photos as $photo) {
+    //     echo $photo->title."<br>";
+    // }
+    //----------------
     // $user = new User();
-    // $user->username = "nUser02";
+    // $user->username = "nUser03";
     // $user->save();
     //----------------
     // $user = User::find_by_id(9);
@@ -37,10 +50,10 @@
     // $found_user = User::find_by_id(2);
     // echo $found_user->username;
     //-------------
-    $users = User::find_all();
-    foreach ($users as $user) {
-        echo $user->username."<br>";
-    }
+    // $users = User::find_all();
+    // foreach ($users as $user) {
+    //     echo $user->username."<br>";
+    // }
     //-------------------
     // $found_user = User::find_by_id(2);
     // $user = User::instantation($found_user);
