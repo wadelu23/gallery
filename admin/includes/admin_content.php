@@ -7,8 +7,11 @@
                             Admin
                             <small>Subheading</small>
                         </h1>
-                        
 <?php
+    // echo DS."<br>";
+    // echo SITE_ROOT."<br>";
+    // echo INCLUDES_PATH."<br>";
+    //-----------------
     // $photo = new Photo();
     // $photo->title = "fire01";
     // $photo->description = "big fire";
