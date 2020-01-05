@@ -3,7 +3,7 @@
 class Photo extends Db_object{
     protected static $db_table = "photos";
     protected static $db_table_fields = array('photo_id','title','description','filename','type','size');
-    public $photo_id;
+    public $id;
     public $title;
     public $description;
     public $filename;
@@ -50,7 +50,7 @@ class Photo extends Db_object{
             $this->update();
         }else{
             if(!empty($this->aErrors)){return false;}
-            if(empty($this->filename || empty($this->tmp_path))){
+            if(empty($this->filename) || empty($this->tmp_path)){
                 $this->aErrors[] = "the file was not avaiable";
                 return false;
             }
@@ -68,6 +68,15 @@ class Photo extends Db_object{
                 $this->aErrors[] = "the file directory probably does not have permission";
                 return false;
             }
+        }
+    }
+
+    public function delete_photo(){
+        if($this->delete()){
+            $target_path = SITE_ROOT.DS.'admin'.DS.$this->picture_path();
+            return unlink($target_path) ? true : false;
+        }else{
+            return false;
         }
     }
 }

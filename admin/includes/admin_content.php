@@ -8,6 +8,9 @@
                             <small>Subheading</small>
                         </h1>
 <?php
+    $photo = Photo::find_by_id(6);
+    echo $photo->filename;
+    //------------
     // echo DS."<br>";
     // echo SITE_ROOT."<br>";
     // echo INCLUDES_PATH."<br>";
