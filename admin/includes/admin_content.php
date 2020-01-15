@@ -8,7 +8,7 @@
                             <small>Subheading</small>
                         </h1>
 <?php
-    $photo = Photo::find_by_id(6);
+    $photo = Photo::find_by_id(14);
     echo $photo->filename;
     //------------
     // echo DS."<br>";
