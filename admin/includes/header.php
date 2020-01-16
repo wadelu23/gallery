@@ -38,6 +38,8 @@ require_once("init.php");
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
