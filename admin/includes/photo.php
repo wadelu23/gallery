@@ -40,7 +40,6 @@ class Photo extends Db_object{
             $this->type     = $file['type'];
             $this->size     = $file['size'];
         }
-
     }
 
     public function picture_path(){

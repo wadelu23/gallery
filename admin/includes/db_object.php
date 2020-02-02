@@ -2,6 +2,33 @@
 
 class Db_object{
 
+    public $aErrors = array();
+    public $aUpload_errors = array(
+        UPLOAD_ERR_OK           => "no Error",
+        UPLOAD_ERR_INI_SIZE     => "upload_max_file",
+        UPLOAD_ERR_FORM_SIZE    => "max_file_size",
+        UPLOAD_ERR_PARTIAL      => "only partially upload",
+        UPLOAD_ERR_NO_FILE      => "NO FILE",
+        UPLOAD_ERR_NO_TMP_DIR   => "Missing a temporary folder",
+        UPLOAD_ERR_CANT_WRITE   => "Failed to write file to disk",
+        UPLOAD_ERR_EXTENSION    => "A PHP extension stopped the file upload",
+    );
+
+    public function set_file($file){
+        if(empty($file) || !$file || !is_array($file)){
+            $this->aErrors[] = "There was no file uploaded here";
+            return false;
+        }elseif($file['error'] != 0){
+            $this->aErrors[] = $this->aUpload_errors[$file['error']];
+            return false;
+        }else{
+            $this->user_image = basename($file['name']);
+            $this->tmp_path = $file['tmp_name'];
+            $this->type     = $file['type'];
+            $this->size     = $file['size'];
+        }
+    }
+
     public static function find_all(){
         $sql = "SELECT * FROM ". static::$db_table." ";
         return static::find_by_query($sql);
@@ -94,6 +121,7 @@ class Db_object{
         $database->query($sql);
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
     }//Update Method
+    
     public function delete(){
         global $database;
         $sql = "DELETE FROM `" .static::$db_table. "` ";
