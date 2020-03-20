@@ -1,3 +1,31 @@
+<?php
+require_once("admin/includes/init.php");
+
+if(empty($_GET['id'])){
+    redirect("index.php");
+}
+
+$photo = Photo::find_by_id($_GET['id']);
+
+if(isset($_POST['submit'])){
+    $author = trim($_POST['author']);
+    $body   = trim($_POST['body']);
+
+    $new_comment = Comment::create_comment($photo->id, $author, $body);
+    if($new_comment && $new_comment->save()){
+        redirect("photo.php?id={$photo->id}");
+    }else{
+        $message = "There was some problems saving";
+    }
+}else{
+    $author = "";
+    $body   = "";
+}
+Comment::find_the_comments($photo->id);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,11 +132,15 @@
                 <!-- Comments Form -->
                 <div class="well">
                     <h4>Leave a Comment:</h4>
-                    <form role="form">
+                    <form role="form" method="post">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <label for="author">Author</label>
+                            <input type="text"  name="author" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                            <textarea name="body" class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
 
