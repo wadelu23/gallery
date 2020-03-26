@@ -5,88 +5,117 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Admin
-                            <small>Subheading</small>
+                            <small>Dashboard</small>
                         </h1>
-<?php
-    $photo = Photo::find_by_id(14);
-    echo $photo->filename;
-    //------------
-    // echo DS."<br>";
-    // echo SITE_ROOT."<br>";
-    // echo INCLUDES_PATH."<br>";
-    //-----------------
-    // $photo = new Photo();
-    // $photo->title = "fire01";
-    // $photo->description = "big fire";
-    // $photo->filename = "fire01.jpg";
-    // $photo->type = "img";
-    // $photo->size = "16";
-    // $photo->create();
-    //------------------
-    // $photos = Photo::find_all();
-    // foreach ($photos as $photo) {
-    //     echo $photo->title."<br>";
-    // }
-    //----------------
-    // $user = new User();
-    // $user->username = "nUser03";
-    // $user->save();
-    //----------------
-    // $user = User::find_by_id(9);
-    // $user->password = "PWD001";
-    // $user->save();
-    //----------------
-    // $user = User::find_by_id(10);
-    // $user->delete();
-    //-----------------
-    // $user = User::find_by_id(2);
-    // $user->username = "number2";
-    // $user->password = "777";
-    // $user->first_name = "updno1";
-    // $user->last_name = "Luxy77";
-    // $user->update();
-    //------------------
-    // $user = new User();
-    // $user->username = "will02";
-    // $user->password = "456";
-    // $user->first_name = "hipper02";
-    // $user->last_name = "bank02";
-    // $user->create();
-    //------------------
-    // $found_user = User::find_by_id(2);
-    // echo $found_user->username;
-    //-------------
-    // $users = User::find_all();
-    // foreach ($users as $user) {
-    //     echo $user->username."<br>";
-    // }
-    //-------------------
-    // $found_user = User::find_by_id(2);
-    // $user = User::instantation($found_user);
-    
-    // echo $user->id."<br>";
-    // echo $user->username."<br>";
-    // echo $user->password."<br>";
-    // echo $user->first_name."<br>";
-    // echo $user->last_name."<br>";
-    //-------------------
-    // $found_user = User::find_by_id(2);
-    // echo $found_user['username'];
-    //---------------
-    // $result_set = User::find_all();
-    // while($row = mysqli_fetch_array($result_set)){
-    //     echo $row['username']."<br>";
-    // }
-    //-----------------
-    // $sql = "SELECT * FROM users WHERE id=1";
-    // $result = $database->query($sql);
-    // $user_found = mysqli_fetch_array($result);
-    // echo $user_found['username'];
-    //-----------------
-    // if($database->connection){
-    //     echo "true";
-    // }
-?>
+
+
+
+                        <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-users fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><?php echo $session->count;  ?></div>
+                                        <div>New Views</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                  <span class="pull-left">View Details</span> 
+                               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span> 
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                     <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-photo fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge"><?php echo Photo::count_all(); ?></div>
+                                        <div>Photos</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Total Photos in Gallery</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                     <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-user fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">
+                                            <?php echo User::count_all(); ?>
+                                        </div>
+
+                                        <div>Users</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Total Users</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                      <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-support fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">
+                                        <?php echo Comment::count_all(); ?>
+                                        </div>
+                                        <div>Comments</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <span class="pull-left">Total Comments</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                        </div> <!--First Row-->
+
+
+                    <div class="row">
+                        <div id="piechart" style="width: 900px; height: 500px;"></div>
+                    </div>
 
 
                         <ol class="breadcrumb">
